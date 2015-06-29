@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         uglify: {
     my_target: {
       files: {
-        'release/js/js.min.js': ['js/bootstrap.min.js', 'js/jquery.fancybox.js', 'js/helpers/jquery.fancybox-thumbs.js', 'js/jquery.mousewheel-3.0.6.pack.js', 'js/jquery.maskedinput.min.js', 'js/jquery.carouFredSel-6.1.0-packed.js', 'js/jquery.bxslider.min.js']
+        'js/js.min.js': ['js/bootstrap.min.js', 'js/jquery.fancybox.js', 'js/helpers/jquery.fancybox-thumbs.js', 'js/jquery.mousewheel-3.0.6.pack.js', 'js/jquery.maskedinput.min.js', 'js/jquery.carouFredSel-6.1.0-packed.js', 'js/jquery.bxslider.min.js', 'js/common.js']
       }
     }
   },
@@ -52,10 +52,13 @@ module.exports = function (grunt) {
         removeComments: true,
         collapseWhitespace: true
       },
-      files: {                                   // Dictionary of files
-        'dist/index.html': 'dist/index.html'     // 'destination': 'source'
+      files: [{                                   
+	    expand: true,
+		cwd: 'dist/',
+        src: ['**/*.html'],
+		dest: 'dist/'     // 'destination': 'source'
        
-      }
+      }]
     
     
     }
@@ -168,6 +171,7 @@ critical: {
  
   
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-include-replace');
@@ -178,5 +182,6 @@ critical: {
 	grunt.loadNpmTasks('grunt-contrib-copy');
  
     
-    grunt.registerTask('default', ['includereplace', 'processhtml']);
+    grunt.registerTask('default', ['uglify', 'copy']);
+	grunt.registerTask('dev', ['includereplace:dev', 'processhtml:dev']);
 };
