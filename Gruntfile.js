@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
-	
+	  
+	  require('jit-grunt')(grunt);
 	
  
     grunt.initConfig({
@@ -173,17 +174,9 @@ critical: {
        
     });
  
-  
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-	  grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-	  grunt.loadNpmTasks('grunt-include-replace');
-    grunt.loadNpmTasks('grunt-critical');
-	  grunt.loadNpmTasks('grunt-contrib-connect');
-	  grunt.loadNpmTasks('grunt-processhtml');
-	  grunt.loadNpmTasks('grunt-contrib-watch');
-	  grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-include-replace');
+    
+	  
  
     
     grunt.registerTask('default', ['includereplace', 'processhtml', 'critical']);
