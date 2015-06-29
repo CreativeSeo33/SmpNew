@@ -1,0 +1,11 @@
+beget:
+    scheme: ftp
+    host: hugo.beget.ru
+   
+    user: xoxlov
+    pass: 1!^s04{b
+    check: true
+    path:
+        local: dist/
+        remote: /vptorg.ru/public_html/
+
