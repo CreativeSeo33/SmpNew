@@ -158,12 +158,16 @@ critical: {
             css: [
                 'dist/css/style.min.css'
             ],
-            width: 1600,
-            height: 1000
+            width: 1200,
+            height: 700
         },
-        src: 'dist/index.html',
-        dest: 'dist/index.html',
-		ignore: ['@font-face',/url\(/]
+        files: [{                                   
+      expand: true,
+    cwd: 'dist/',
+        src: ['**/*.html'],
+    dest: 'dist/'     // 'destination': 'source'
+       
+      }]
     }
 }
        
@@ -171,17 +175,17 @@ critical: {
  
   
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	  grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-include-replace');
+	  grunt.loadNpmTasks('grunt-include-replace');
     grunt.loadNpmTasks('grunt-critical');
-	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-processhtml');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-copy');
+	  grunt.loadNpmTasks('grunt-contrib-connect');
+	  grunt.loadNpmTasks('grunt-processhtml');
+	  grunt.loadNpmTasks('grunt-contrib-watch');
+	  grunt.loadNpmTasks('grunt-contrib-copy');
  
     
-    grunt.registerTask('default', ['includereplace', 'processhtml', 'htmlmin', 'uglify', 'copy']);
-	grunt.registerTask('dev', ['includereplace:dev', 'processhtml:dev']);
+    grunt.registerTask('default', ['includereplace', 'processhtml', 'critical']);
+	  grunt.registerTask('dev', ['includereplace:dev', 'processhtml:dev']);
 };
