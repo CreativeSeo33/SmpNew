@@ -179,6 +179,6 @@ critical: {
 	  
  
     
-    grunt.registerTask('default', ['includereplace', 'processhtml', 'critical']);
+    grunt.registerTask('default', ['includereplace', 'processhtml', 'htmlmin', 'critical']);
 	  grunt.registerTask('dev', ['includereplace:dev', 'processhtml:dev']);
 };
