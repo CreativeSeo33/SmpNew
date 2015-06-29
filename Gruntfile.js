@@ -131,6 +131,20 @@ copy: {
                     ],
                     dest: 'dist/'
                 }]
+            },
+			dev: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                   
+                    src: [
+                        'css/**/*',
+                        'js/**/*',
+						'fonts/**/*'
+						
+                    ],
+                    dest: 'dev/'
+                }]
             }
         },	
 
