@@ -182,6 +182,6 @@ critical: {
 	grunt.loadNpmTasks('grunt-contrib-copy');
  
     
-    grunt.registerTask('default', ['uglify', 'copy']);
+    grunt.registerTask('default', ['includereplace', 'processhtml', 'htmlmin', 'uglify', 'copy']);
 	grunt.registerTask('dev', ['includereplace:dev', 'processhtml:dev']);
 };
